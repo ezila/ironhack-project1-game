@@ -1,4 +1,5 @@
 let character;
+let obstacles;
 let gameover = false;
 
 const ctx = document.querySelector('#game-board canvas').getContext('2d');
@@ -8,7 +9,27 @@ const H = ctx.canvas.height;
 function draw() {
   ctx.clearRect(0,0,W,H);
   
+  // Personnage
   character.draw();
+
+  // Obstacles
+  if (frames % 150 === 0) {
+    var obstacle = new Obstacle();
+    obstacles.push(obstacle);
+  }
+
+  obstacles.forEach(function (obstacle) {
+    obstacle.x -= 2; //vitesse
+    obstacle.draw();
+  });
+
+  // Collision obstacle
+  for (obstacle of obstacles) {
+    if (obstacle.hits(character)) {
+      console.log('crashed');
+      gameover = true;
+    }
+  }
 }
 
 document.onkeydown = function (e) {
@@ -46,6 +67,7 @@ function startGame() {
   }
 
   character = new Character();
+  obstacles = [];
 
   raf = requestAnimationFrame(animLoop);
 }
