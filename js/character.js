@@ -10,7 +10,7 @@ class Character {
       this.h = this.w/imgRatio;
 
       this.x = 30;
-      this.y = 250;
+      this.y = 225;
     }
     img.src = "images/character.png";
   }
@@ -22,9 +22,15 @@ class Character {
 
   moveTop() {
     this.y += -30;
+    if (this.y < 30) {
+      this.y = 30;
+    }
   }
 
   moveBottom () {
     this.y += 30;
+    if (this.y > 380) {
+      this.y = 380;
+    }
   }
 }

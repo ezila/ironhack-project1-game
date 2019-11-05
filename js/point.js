@@ -2,7 +2,7 @@ function random(from, to) {
   return Math.floor(from + Math.random()*(to - from));
 }
 
-class Obstacle {
+class Point {
   constructor() {
     this.w = 40;
     this.h = 40;
@@ -12,7 +12,7 @@ class Obstacle {
   }
 
   draw() {
-    ctx.fillStyle = "red";
+    ctx.fillStyle = "green";
     ctx.fillRect(this.x,this.y, this.w,this.h);
   }
 
