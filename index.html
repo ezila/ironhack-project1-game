@@ -4,10 +4,14 @@
     <meta charset="UTF-8"/>
     <title>My first game</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fonts/FR73 Pixel/index.css" />
   </head>
-  <body>
-    <nav>
-    </nav>
+  <body class="background-game">
+    <div class="startScreen" id="remove-screen">
+      <img src="images/character.png" alt="Character"/>
+      <button class="button" id="start-button">start game</button>
+    </div>
+    
     <div id="game-board">
       <canvas width="800" height="500"></canvas>
     </div>

@@ -13,7 +13,7 @@ function draw() {
 
   // Counter
   ctx.fillStyle = "black";
-  ctx.font = "20px Helvetica";
+  ctx.font = "12px FR73 Pixel W00 Regular";
   ctx.textAlign = "left";
   ctx.textBaseline = "top";
   ctx.fillText("Points: " + pointCaught, 680, 20);
@@ -111,4 +111,11 @@ function startGame() {
 
   raf = requestAnimationFrame(animLoop);
 }
-startGame();
+
+document.getElementById("start-button").onclick = function() {
+  document.getElementById("remove-screen").style.display = 'none';
+  startGame();
+};
+
+// auto start
+//startGame();
