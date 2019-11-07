@@ -23,4 +23,9 @@ class Point {
       (character.y <= this.y+this.h && character.y+character.h >= this.y)
     );
   }
+
+  hidePoint() {
+    this.x = -50;
+    this.y = -50;
+  }
 }

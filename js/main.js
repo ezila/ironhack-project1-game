@@ -1,8 +1,6 @@
 let character;
 let obstacles;
 let points;
-let gameover = false;
-let pointCaught = 0;
 
 const ctx = document.querySelector('#game-board canvas').getContext('2d');
 const W = ctx.canvas.width;
@@ -22,7 +20,7 @@ function draw() {
   character.draw();
 
   // Obstacles
-  if (frames % 80 === 0) {
+  if (frames % 50 === 0) {
     var obstacle = new Obstacle();
     obstacles.push(obstacle);
   }
@@ -30,11 +28,10 @@ function draw() {
   obstacles.forEach(function (obstacle) {
     obstacle.x -= 5; //vitesse
     obstacle.draw();
-    if (pointCaught >= 200) {
-      obstacle.x -= 7;
-    } else if (pointCaught >= 400) {
-      point.x -= 9;
-    }
+
+    // if (pointCaught / 9 === 0) {
+    //   ++obstacle.x;
+    // }
   });
 
   // Collision obstacle
@@ -42,23 +39,23 @@ function draw() {
     if (obstacle.hits(character)) {
       console.log('crashed');
       gameover = true;
+      gameOver()
     }
   }
   
   // Points
-  if (frames % 80 === 0) {
+  if (frames % 50 === 0) {
     var point = new Point();
     points.push(point);
   }
 
   points.forEach(function (point) {
-    point.x -= 2; //vitesse
+    point.x -= 3; //vitesse
     point.draw();
-    if (pointCaught >= 200) {
-      point.x -= 4;
-    } else if (pointCaught >= 400) {
-      point.x -= 6;
-    }
+
+    // if (pointCaught >= 5) {
+    //   point.x -= 4;
+    // }
   });
 
   // Points attrapés
@@ -66,7 +63,7 @@ function draw() {
     if (point.hits(character)) {
       console.log('+1');
       ++pointCaught;
-      //ctx.clearRect(80,0,40,H);
+      point.hidePoint();
     }
   }
 }
@@ -101,6 +98,8 @@ function animLoop() {
 
 
 function startGame() {
+  gameover = false;
+  pointCaught = 0;
   if (raf) {
     cancelAnimationFrame(raf);
   }
@@ -110,6 +109,14 @@ function startGame() {
   points = [];
 
   raf = requestAnimationFrame(animLoop);
+}
+
+function gameOver() {
+  document.getElementById("game-over").style.display = 'block';
+  document.getElementById("over-button").onclick = function() {
+    document.getElementById("game-over").style.display = 'none';
+    startGame();
+  };
 }
 
 document.getElementById("start-button").onclick = function() {

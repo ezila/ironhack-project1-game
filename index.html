@@ -8,8 +8,15 @@
   </head>
   <body class="background-game">
     <div class="startScreen" id="remove-screen">
-      <img src="images/character.png" alt="Character"/>
+      <div class="instructions">
+        <img src="images/character.gif" alt="Character"/>
+        <p>En utilisant les flêches ↑ et ↓ de ton clavier, aides Ali la végétarienne à se nourrir. Attention, tu dois éviter les aliments qu'elle ne consomme pas !</p>
+      </div>
       <button class="button" id="start-button">start game</button>
+    </div>
+
+    <div class="gameOver" id="game-over">
+      <button class="button" id="over-button">try again</button>
     </div>
     
     <div id="game-board">

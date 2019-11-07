@@ -1,5 +1,15 @@
 * {box-sizing:border-box;}
 
+.background-game {
+  margin:0;
+  /*background-image: url(images/background-pixel.png);*/
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: white;
+  height:100vh;
+}
+
 /*START SCREEN*/
 .startScreen {
   padding: 0;
@@ -12,22 +22,34 @@
   bottom: 0;
   left: 0;
   right: 0;
-  
   z-index: 1;
 }
 
-img {
+.instructions {
+  display: flex;
+  align-items: center;
+  width: 40em;
+  margin: 6em auto 2em;
+}
+
+.instructions p {
+  font-family: 'FR73 Pixel W00 Regular', sans-serif;
+  font-size: 19px;
+  margin-left: 3em;
+}
+
+.instructions img {
   height: 200px;
 }
 
 .button {
   font-family: 'FR73 Pixel W00 Regular', sans-serif;
-  color:black;
+  color:#EB5E69;
   font-size: 24px;
   background: white;
-  padding: 0.3rem 3.4rem;
-  border: 3px solid black;
-  box-shadow: 0 0 0 black;
+  padding: 0.3rem 3rem;
+  border: 3px solid #EB5E69;
+  box-shadow: 0 0 0 #EB5E69;
   transition: all 0.2s;
 
   display: flex;
@@ -36,12 +58,12 @@ img {
 }
 
 .button:hover {
-  box-shadow: 0.4rem 0.4rem 0 black;
+  box-shadow: 0.4rem 0.4rem 0 #EB5E69;
   transform: translate(-0.4rem, -0.4rem);
 }
 
 .button:active {
-  box-shadow: 0 0 0 black;
+  box-shadow: 0 0 0 #EB5E69;
   transform: translate(0, 0);
 }
 
@@ -58,16 +80,6 @@ img {
 }
 
 /*CANVAS*/
-.background-game {
-  margin:0;
-  background-image: url(images/background.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-color: white;
-  height:100vh;
-}
-
 #game-board {
   width: 100%;
   margin: 0 auto;
@@ -85,4 +97,21 @@ canvas {
   left: 0;
   right: 0;
   border: 1px solid;
+  z-index: -1;
+}
+
+/*GAME OVER*/
+.gameOver {
+  padding: 0;
+  margin: auto;
+  display: none;
+  width: 800px;
+  height: 500px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background-color: white;
 }
