@@ -2,7 +2,7 @@
 
 .background-game {
   margin:0;
-  /*background-image: url(images/background-pixel.png);*/
+  background-image: url(images/background-start.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -26,20 +26,19 @@
 }
 
 .instructions {
-  display: flex;
-  align-items: center;
+  text-align: center;
   width: 40em;
-  margin: 6em auto 2em;
+  margin: 2em auto 2em;
 }
 
 .instructions p {
   font-family: 'FR73 Pixel W00 Regular', sans-serif;
   font-size: 19px;
-  margin-left: 3em;
+  margin: 2em auto;
 }
 
 .instructions img {
-  height: 200px;
+  height: 10em;
 }
 
 .button {
@@ -69,14 +68,14 @@
 
 .button :before {
   content: '';
-    position: absolute;
-    z-index: -1;
-    top: 12px;
-    left: -14px;
-    width: calc(100% + 6px);
-    height: calc(100% + 6px);
-    background-color: #f9d159;
-    transition: all .3s ease;
+  position: absolute;
+  z-index: -1;
+  top: 12px;
+  left: -14px;
+  width: calc(100% + 6px);
+  height: calc(100% + 6px);
+  background-color: #f9d159;
+  transition: all .3s ease;
 }
 
 /*CANVAS*/
@@ -96,8 +95,7 @@ canvas {
   bottom: 0;
   left: 0;
   right: 0;
-  border: 1px solid;
-  z-index: -1;
+  z-index: 0;
 }
 
 /*GAME OVER*/
@@ -113,5 +111,15 @@ canvas {
   left: 0;
   right: 0;
   z-index: 2;
-  background-color: white;
+}
+
+.container {
+  text-align: center;
+  width: 40em;
+  margin: 2em auto 2em;
+}
+
+.container img {
+  height: 18em;
+  margin-bottom: 4em;
 }

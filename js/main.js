@@ -14,7 +14,7 @@ function draw() {
   ctx.font = "12px FR73 Pixel W00 Regular";
   ctx.textAlign = "left";
   ctx.textBaseline = "top";
-  ctx.fillText("Points: " + pointCaught, 680, 20);
+  ctx.fillText("Points: " + pointCaught, 660, 20);
   
   // Personnage
   character.draw();
@@ -112,9 +112,11 @@ function startGame() {
 }
 
 function gameOver() {
+  document.getElementById("game-board").style.display = 'none';
   document.getElementById("game-over").style.display = 'block';
   document.getElementById("over-button").onclick = function() {
     document.getElementById("game-over").style.display = 'none';
+    document.getElementById("game-board").style.display = 'block';
     startGame();
   };
 }
