@@ -1,19 +1,27 @@
+var tabObstacles = ['images/crevette.png', 'images/steak.png', 'images/poulet.png'];
+
 function random(from, to) {
   return Math.floor(from + Math.random()*(to - from));
 }
 
 class Obstacle {
   constructor() {
-    this.w = 40;
-    this.h = 40;
+    const img = document.createElement('img');
+    img.onload = () => {
+      this.img = img;
 
-    this.x = W+this.w;
-    this.y = random(0, H-this.h);
+      this.w = 40;
+      this.h = 40;
+
+      this.x = W+this.w;
+      this.y = random(0, H-this.h);
+    }
+    img.src = tabObstacles[Math.floor(Math.random()*tabObstacles.length)];
   }
 
   draw() {
-    ctx.fillStyle = "red";
-    ctx.fillRect(this.x,this.y, this.w,this.h);
+    if (!this.img) return;
+    ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
   }
 
   hits(character) {
