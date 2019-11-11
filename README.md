@@ -1,5 +1,5 @@
 # ironhack-project1-game
-First project Ironhack - game
+- Feed Ali -
 
-Aides Ali la végétarienne à éviter la viande et le poisson à l'aide des flêches ↑ et ↓.
-Attrapes le reste des aliments pour gagner le plus de point possible !
+En utilisant les flêches ↑ et ↓ de ton clavier, aides Ali la végétarienne à se nourrir.
+Attention, tu dois éviter les aliments qu'elle ne consomme pas !
